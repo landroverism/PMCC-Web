@@ -22,9 +22,11 @@ export default function Header() {
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <div className="flex items-center">
-                <div className="w-10 h-10 bg-emerald-600 rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">P</span>
-                </div>
+                <img 
+                  src="/images/pmcc-logo.png" 
+                  alt="Presbyterian Medical Care Centre Logo" 
+                  className="w-12 h-12 object-contain"
+                />
                 <div className="ml-3">
                   <h1 className="text-lg font-bold text-gray-900">Presbyterian</h1>
                   <p className="text-xs text-gray-600">Medical Care Centre</p>

@@ -8,9 +8,11 @@ export default function Footer() {
           {/* Logo and Description */}
           <div className="md:col-span-2">
             <div className="flex items-center mb-4">
-              <div className="w-10 h-10 bg-emerald-600 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-lg">P</span>
-              </div>
+              <img 
+                src="/images/pmcc-logo.png" 
+                alt="Presbyterian Medical Care Centre Logo" 
+                className="w-12 h-12 object-contain"
+              />
               <div className="ml-3">
                 <h3 className="text-lg font-bold">Presbyterian Medical Care Centre</h3>
               </div>
