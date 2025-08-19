@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AppBar, Toolbar, Typography, Button, IconButton, Drawer, List, ListItem, ListItemText, Box, Divider, ListItemButton, useScrollTrigger, Slide } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import DehazeIcon from '@mui/icons-material/Dehaze';
 import { Link } from 'react-scroll';
 
 const navItems = [
@@ -37,18 +37,18 @@ export default function Header() {
 
   const drawer = (
     <Box
-      sx={{ width: 250, display: 'flex', flexDirection: 'column', height: '100%', bgcolor: 'secondary.main', color: 'white' }}
+      sx={{ width: '100vw', display: 'flex', flexDirection: 'column', height: '100%', bgcolor: 'secondary.main', color: 'white' }}
       role="presentation"
     >
-      <Box sx={{ p: 2, textAlign: 'center' }}>
-        <Typography variant="h6" component="div" fontWeight="bold">Menu</Typography>
+      <Box sx={{ py: 3, textAlign: 'center' }}>
+        <Typography variant="h5" component="div" fontWeight="bold">Menu</Typography>
       </Box>
       <Divider sx={{ bgcolor: 'rgba(255, 255, 255, 0.2)' }} />
       <List sx={{ flexGrow: 1 }}>
         {[...navItems, { name: "Contact", href: "contact" }].map((item) => (
           <ListItem key={item.name} disablePadding>
-            <ListItemButton component={Link} to={item.href} smooth={true} duration={500} sx={{ textAlign: 'center' }} onClick={handleDrawerToggle}>
-              <ListItemText primary={item.name} />
+            <ListItemButton component={Link} to={item.href} smooth={true} duration={500} sx={{ textAlign: 'center', py: 2 }} onClick={handleDrawerToggle}>
+              <ListItemText primary={item.name} primaryTypographyProps={{ fontWeight: 'bold' }} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -108,7 +108,7 @@ export default function Header() {
               onClick={handleDrawerToggle}
               sx={{ display: { md: 'none' } }}
             >
-              <MenuIcon />
+              <DehazeIcon />
             </IconButton>
           </Toolbar>
         </AppBar>

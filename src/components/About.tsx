@@ -90,7 +90,7 @@ export default function About() {
               }}>
               <Box
                 component="img"
-                src="/images/tree.jpeg"
+                src="/images/staff-2.jpeg"
                 alt="Peaceful environment at PMCC"
                 sx={{
                   width: '100%',

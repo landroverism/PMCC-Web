@@ -21,14 +21,14 @@ import HouseIcon from '@mui/icons-material/House';
 const iconProps = { fontSize: 'large', color: 'primary' };
 
 const currentFacilities = [
-  { title: "Comfortable Living Rooms", description: "Homely spaces with soft furnishings, warm lighting, and familiar textures.", image: "/images/rehab 1.jpeg", category: "Living Spaces" },
-  { title: "Peaceful Bedrooms", description: "Private, home-like bedrooms with comfortable bedding and personal touches.", image: "/images/rehab 2.jpeg", category: "Accommodation" },
-  { title: "Family-Style Dining", description: "Communal dining areas that feel like home, promoting social connection.", image: "/images/rehab 3.jpeg", category: "Dining" },
-  { title: "Therapy Gardens", description: "Serene outdoor spaces with natural materials and peaceful surroundings.", image: "/images/rehab 4.jpeg", category: "Outdoor Spaces" },
-  { title: "Cozy Reading Nooks", description: "Quiet corners with soft seating and warm lighting for reflection and reading.", image: "/images/rehab 5.jpeg", category: "Quiet Spaces" },
-  { title: "Group Activity Areas", description: "Comfortable spaces designed for group therapy and social activities.", image: "/images/rehab 6.jpeg", category: "Activity Spaces" },
-  { title: "Prayer & Meditation Room", description: "Peaceful spiritual space with natural materials and calming atmosphere.", image: "/images/rehab 7.jpeg", category: "Spiritual" },
-  { title: "Kitchen & Cooking Area", description: "Home-style kitchen where patients can participate in meal preparation.", image: "/images/staff .jpeg", category: "Life Skills" },
+  { title: "Comfortable Living Rooms", description: "Homely spaces with soft furnishings, warm lighting, and familiar textures.", image: "/images/coaches.jpeg", category: "Living Spaces" },
+  { title: "Peaceful Bedrooms", description: "Private, home-like bedrooms with comfortable bedding and personal touches.", image: "/images/bed.jpg", category: "Accommodation" },
+  { title: "Family-Style Dining", description: "Communal dining areas that feel like home, promoting social connection.", image: "/images/dining.jpeg", category: "Dining" },
+  { title: "Therapy Gardens", description: "Serene outdoor spaces with natural materials and peaceful surroundings.", image: "/images/side-view.jpeg", category: "Outdoor Spaces" },
+  { title: "Cozy Reading Nooks", description: "Quiet corners with soft seating and warm lighting for reflection and reading.", image: "/images/hall.jpeg", category: "Quiet Spaces" },
+  { title: "Group Activity Areas", description: "Comfortable spaces designed for group therapy and social activities.", image: "/images/hall.jpeg", category: "Activity Spaces" },
+  { title: "Prayer & Meditation Room", description: "Peaceful spiritual space with natural materials and calming atmosphere.", image: "/images/prayer.jpg", category: "Spiritual" },
+  { title: "Kitchen & Cooking Area", description: "Home-style kitchen where patients can participate in meal preparation.", image: "/images/counter.jpeg", category: "Life Skills" },
 ];
 
 const futurePlans = [
