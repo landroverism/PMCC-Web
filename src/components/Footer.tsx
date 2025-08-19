@@ -16,11 +16,7 @@ export default function Footer() {
     <Box sx={{ backgroundColor: 'primary.main', color: 'white', py: 6 }}>
       <Container maxWidth="lg">
         <Grid container spacing={5}>
-          <Grid
-            size={{
-              xs: 12,
-              md: 4
-            }}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                             <img src="/images/pmcc-logo.png" alt="PMCC Logo" style={{ width: 48, height: 48, marginRight: 16 }} />
               <Box>
@@ -37,11 +33,7 @@ export default function Footer() {
             </Typography>
           </Grid>
 
-          <Grid
-            size={{
-              xs: 6,
-              md: 2
-            }}>
+          <Grid size={{ xs: 12, sm: 6, md: 2 }}>
             <Typography variant="h6" gutterBottom>Quick Links</Typography>
             {navLinks.map((link) => (
               <Link key={link.name} to={link.href} smooth={true} duration={500}>
@@ -52,22 +44,14 @@ export default function Footer() {
             ))}
           </Grid>
 
-          <Grid
-            size={{
-              xs: 6,
-              md: 3
-            }}>
+          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
             <Typography variant="h6" gutterBottom>Contact Us</Typography>
             <Typography variant="body2" sx={{ color: 'white', opacity: 0.8 }}>Engashura, Nakuru</Typography>
             <Typography variant="body2" sx={{ color: 'white', opacity: 0.8 }}>0117 684 003</Typography>
             <Typography variant="body2" sx={{ color: 'white', opacity: 0.8 }}>presbyterianmedcare2025@gmail.com</Typography>
           </Grid>
 
-          <Grid
-            size={{
-              xs: 12,
-              md: 3
-            }}>
+          <Grid size={{ xs: 12, md: 3 }}>
             <Typography variant="h6" gutterBottom>Follow Us</Typography>
             <Box>
               <IconButton aria-label="Facebook" sx={{ color: 'white' }}><FacebookIcon /></IconButton>

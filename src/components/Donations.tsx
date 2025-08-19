@@ -54,7 +54,7 @@ export default function Donations() {
             <Paper elevation={3} sx={{ p: 4, borderRadius: 4 }}>
               <Typography variant="h5" fontWeight="bold" gutterBottom>Make a Donation</Typography>
               <Typography variant="subtitle1" gutterBottom>Select Donation Amount (KES)</Typography>
-              <ToggleButtonGroup value={selectedAmount} exclusive onChange={handleAmountChange} fullWidth sx={{ mb: 2, display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 1 }}>
+              <ToggleButtonGroup value={selectedAmount} exclusive onChange={handleAmountChange} fullWidth sx={{ mb: 2, display: 'grid', gridTemplateColumns: { xs: '1fr 1fr', sm: '1fr 1fr 1fr' }, gap: 1 }}>
                 {predefinedAmounts.map((amount) => (
                   <ToggleButton key={amount} value={amount}>KES {amount.toLocaleString()}</ToggleButton>
                 ))}

@@ -57,6 +57,7 @@ export default function About() {
                 sm: 6,
                 md: 3
               }}>
+
               <Paper elevation={0} sx={{ textAlign: 'center', p: 3, backgroundColor: 'grey.100', height: '100%' }}>
                 <Box sx={{ mb: 2 }}>{feature.icon}</Box>
                 <Typography variant="h6" fontWeight="bold" gutterBottom>{feature.title}</Typography>
@@ -68,11 +69,7 @@ export default function About() {
 
         <Paper elevation={0} sx={{ p: { xs: 3, md: 6 }, backgroundColor: 'primary.lightest', borderRadius: 2 }}>
                     <Grid container spacing={4} alignItems="center">
-            <Grid
-              size={{
-                xs: 12,
-                lg: 6
-              }}>
+            <Grid size={{ xs: 12, lg: 6 }}>
               <Typography variant="h5" component="h3" fontWeight="bold" gutterBottom>
                 Our Mission
               </Typography>
@@ -83,11 +80,7 @@ export default function About() {
                 Located in the heart of Nakuru
               </Typography>
             </Grid>
-            <Grid
-              size={{
-                xs: 12,
-                lg: 6
-              }}>
+            <Grid size={{ xs: 12, lg: 6 }}>
               <Box
                 component="img"
                 src="/images/staff-2.jpeg"
