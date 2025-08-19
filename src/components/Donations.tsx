@@ -1,20 +1,27 @@
-import { useState } from "react";
+import React, { useState } from 'react';
+import { Box, Container, Grid, Paper, Typography, TextField, Button, ToggleButtonGroup, ToggleButton, InputAdornment, Stack, Avatar, Link as MuiLink } from '@mui/material';
+import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
+import ForumIcon from '@mui/icons-material/Forum';
+import HomeWorkIcon from '@mui/icons-material/HomeWork';
+
+const predefinedAmounts = [500, 1000, 2500, 5000, 10000, 25000];
+
+const impactItems = [
+  { icon: <LocalHospitalIcon />, amount: "KES 1,000", text: "Provides one day of meals for a patient in recovery" },
+  { icon: <ForumIcon />, amount: "KES 5,000", text: "Funds one therapy session for someone in need" },
+  { icon: <HomeWorkIcon />, amount: "KES 25,000", text: "Sponsors one week of residential treatment" },
+];
 
 export default function Donations() {
-  const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
+  const [selectedAmount, setSelectedAmount] = useState<number | null>(1000);
   const [customAmount, setCustomAmount] = useState("");
-  const [donorInfo, setDonorInfo] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: ""
-  });
+  const [donorInfo, setDonorInfo] = useState({ name: "", email: "", phone: "", message: "" });
 
-  const predefinedAmounts = [500, 1000, 2500, 5000, 10000, 25000];
-
-  const handleAmountSelect = (amount: number) => {
-    setSelectedAmount(amount);
-    setCustomAmount("");
+  const handleAmountChange = (event: React.MouseEvent<HTMLElement>, newAmount: number | null) => {
+    if (newAmount !== null) {
+      setSelectedAmount(newAmount);
+      setCustomAmount("");
+    }
   };
 
   const handleCustomAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,244 +30,108 @@ export default function Donations() {
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setDonorInfo({
-      ...donorInfo,
-      [e.target.name]: e.target.value
-    });
+    setDonorInfo({ ...donorInfo, [e.target.name]: e.target.value });
   };
 
   const finalAmount = selectedAmount || parseInt(customAmount) || 0;
 
   return (
-    <section id="donations" className="py-20 bg-gradient-to-br from-emerald-50 to-blue-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Support Our Mission
-          </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Your generous donation helps us provide life-changing mental health and substance abuse 
-            treatment to those who need it most. Every contribution makes a difference in someone's 
-            journey to recovery.
-          </p>
-        </div>
+    <Box id="donations" sx={{ py: 10, background: 'linear-gradient(to bottom right, #E6F7F3, #E6F0FF)' }}>
+      <Container maxWidth="lg">
+        <Box sx={{ textAlign: 'center', mb: 8 }}>
+          <Typography variant="h4" component="h2" fontWeight="bold" gutterBottom>Support Our Mission</Typography>
+          <Typography variant="h6" color="text.secondary" sx={{ maxWidth: '800px', mx: 'auto' }}>
+            Your generous donation helps us provide life-changing mental health and substance abuse treatment to those who need it most.
+          </Typography>
+        </Box>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Donation Form */}
-          <div className="bg-white rounded-2xl p-8 shadow-lg">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Make a Donation</h3>
-            
-            {/* Amount Selection */}
-            <div className="mb-6">
-              <label className="block text-sm font-medium text-gray-700 mb-3">
-                Select Donation Amount (KES)
-              </label>
-              <div className="grid grid-cols-3 gap-3 mb-4">
+        <Grid container spacing={4}>
+          <Grid item xs={12} lg={6}>
+            <Paper elevation={3} sx={{ p: 4, borderRadius: 4 }}>
+              <Typography variant="h5" fontWeight="bold" gutterBottom>Make a Donation</Typography>
+              <Typography variant="subtitle1" gutterBottom>Select Donation Amount (KES)</Typography>
+              <ToggleButtonGroup value={selectedAmount} exclusive onChange={handleAmountChange} fullWidth sx={{ mb: 2, display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 1 }}>
                 {predefinedAmounts.map((amount) => (
-                  <button
-                    key={amount}
-                    onClick={() => handleAmountSelect(amount)}
-                    className={`p-3 rounded-lg border-2 font-semibold transition-colors ${
-                      selectedAmount === amount
-                        ? "border-emerald-600 bg-emerald-50 text-emerald-700"
-                        : "border-gray-200 hover:border-emerald-300 text-gray-700"
-                    }`}
-                  >
-                    KES {amount.toLocaleString()}
-                  </button>
+                  <ToggleButton key={amount} value={amount}>KES {amount.toLocaleString()}</ToggleButton>
                 ))}
-              </div>
-              
-              <div className="relative">
-                <input
-                  type="number"
-                  placeholder="Enter custom amount"
-                  value={customAmount}
-                  onChange={handleCustomAmountChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-colors"
-                />
-                <span className="absolute left-4 top-3 text-gray-500">KES</span>
-              </div>
-            </div>
+              </ToggleButtonGroup>
+              <TextField fullWidth type="number" placeholder="Or enter a custom amount" value={customAmount} onChange={handleCustomAmountChange} sx={{ mb: 3 }} InputProps={{ startAdornment: <InputAdornment position="start">KES</InputAdornment> }} />
+              <Stack spacing={2} mb={3}>
+                <TextField label="Full Name (Optional)" name="name" value={donorInfo.name} onChange={handleInputChange} />
+                <TextField label="Email Address (Optional)" name="email" type="email" value={donorInfo.email} onChange={handleInputChange} />
+                <TextField label="Phone Number (Optional)" name="phone" type="tel" value={donorInfo.phone} onChange={handleInputChange} />
+                <TextField label="Message (Optional)" name="message" multiline rows={3} value={donorInfo.message} onChange={handleInputChange} />
+              </Stack>
+              {finalAmount > 0 && (
+                <Paper variant="outlined" sx={{ p: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: 'primary.lightest' }}>
+                  <Typography fontWeight="bold">Donation Amount:</Typography>
+                  <Typography variant="h5" fontWeight="bold" color="primary">KES {finalAmount.toLocaleString()}</Typography>
+                </Paper>
+              )}
+            </Paper>
+          </Grid>
 
-            {/* Donor Information */}
-            <div className="space-y-4 mb-6">
-              <div>
-                <label htmlFor="donor-name" className="block text-sm font-medium text-gray-700 mb-2">
-                  Full Name (Optional)
-                </label>
-                <input
-                  type="text"
-                  id="donor-name"
-                  name="name"
-                  value={donorInfo.name}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-colors"
-                  placeholder="Enter your name"
-                />
-              </div>
+          <Grid item xs={12} lg={6}>
+            <Paper elevation={3} sx={{ p: 4, borderRadius: 4, height: '100%' }}>
+              <Typography variant="h5" fontWeight="bold" gutterBottom>Payment Instructions</Typography>
+              <Paper sx={{ p: 2, mb: 3, backgroundColor: 'primary.lightest' }}>
+                <Typography variant="h6" color="primary.dark" fontWeight="bold">M-Pesa Payment</Typography>
+                <Typography color="primary.dark">Send your donation directly via M-Pesa to support our mission.</Typography>
+              </Paper>
+              <Stack spacing={2}>
+                <InstructionStep num="1" title="Open M-Pesa" text="Go to M-Pesa on your phone and select 'Send Money'." />
+                <InstructionStep num="2" title="Enter Phone Number">
+                  <Typography color="text.secondary" gutterBottom>Send to either of our numbers:</Typography>
+                  <Paper variant="outlined" sx={{ p: 1.5, textAlign: 'center' }}>
+                    <Typography fontFamily="monospace" fontSize="1.2rem" fontWeight="bold" color="primary">0117 684 003</Typography>
+                    <Typography>or</Typography>
+                    <Typography fontFamily="monospace" fontSize="1.2rem" fontWeight="bold" color="primary">0735 269 968</Typography>
+                  </Paper>
+                </InstructionStep>
+                <InstructionStep num="3" title="Enter Amount" text={finalAmount > 0 ? `Enter KES ${finalAmount.toLocaleString()} as your donation amount.` : "Enter your desired donation amount."} />
+                <InstructionStep num="4" title="Complete Transaction" text="Enter your M-Pesa PIN and confirm the transaction." />
+              </Stack>
+              <Paper sx={{ mt: 3, p: 2, backgroundColor: 'secondary.lightest' }}>
+                <Typography fontWeight="bold" color="secondary.dark">📧 Confirmation</Typography>
+                <Typography color="secondary.dark" variant="body2">
+                  After donating, please email us your M-Pesa confirmation at <MuiLink href="mailto:presbyterianmedcare2025@gmail.com">presbyterianmedcare2025@gmail.com</MuiLink> to receive a receipt.
+                </Typography>
+              </Paper>
+            </Paper>
+          </Grid>
+        </Grid>
 
-              <div>
-                <label htmlFor="donor-email" className="block text-sm font-medium text-gray-700 mb-2">
-                  Email Address (Optional)
-                </label>
-                <input
-                  type="email"
-                  id="donor-email"
-                  name="email"
-                  value={donorInfo.email}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-colors"
-                  placeholder="Enter your email"
-                />
-              </div>
+        <Paper elevation={3} sx={{ mt: 6, p: 4, borderRadius: 4 }}>
+          <Typography variant="h5" component="h3" fontWeight="bold" textAlign="center" gutterBottom>Your Impact</Typography>
+          <Grid container spacing={4} mt={2}>
+            {impactItems.map((item) => (
+              <Grid item xs={12} md={4} key={item.amount} sx={{ textAlign: 'center' }}>
+                <Avatar sx={{ width: 64, height: 64, bgcolor: 'primary.lightest', color: 'primary.main', mx: 'auto', mb: 2 }}>{item.icon}</Avatar>
+                <Typography variant="h6" fontWeight="bold">{item.amount}</Typography>
+                <Typography color="text.secondary">{item.text}</Typography>
+              </Grid>
+            ))}
+          </Grid>
+        </Paper>
 
-              <div>
-                <label htmlFor="donor-phone" className="block text-sm font-medium text-gray-700 mb-2">
-                  Phone Number (Optional)
-                </label>
-                <input
-                  type="tel"
-                  id="donor-phone"
-                  name="phone"
-                  value={donorInfo.phone}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-colors"
-                  placeholder="Enter your phone number"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="donor-message" className="block text-sm font-medium text-gray-700 mb-2">
-                  Message (Optional)
-                </label>
-                <textarea
-                  id="donor-message"
-                  name="message"
-                  rows={3}
-                  value={donorInfo.message}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-colors resize-vertical"
-                  placeholder="Leave a message of support..."
-                ></textarea>
-              </div>
-            </div>
-
-            {/* Donation Summary */}
-            {finalAmount > 0 && (
-              <div className="bg-emerald-50 rounded-lg p-4 mb-6">
-                <div className="flex justify-between items-center">
-                  <span className="font-semibold text-gray-900">Donation Amount:</span>
-                  <span className="text-2xl font-bold text-emerald-600">
-                    KES {finalAmount.toLocaleString()}
-                  </span>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* M-Pesa Payment Instructions */}
-          <div className="bg-white rounded-2xl p-8 shadow-lg">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Payment Instructions</h3>
-            
-            <div className="bg-green-50 rounded-lg p-6 mb-6">
-              <div className="flex items-center mb-4">
-                <span className="text-3xl mr-3">📱</span>
-                <h4 className="text-xl font-semibold text-green-800">M-Pesa Payment</h4>
-              </div>
-              <p className="text-green-700 mb-4">
-                Send your donation directly via M-Pesa to support our mission of healing and recovery.
-              </p>
-            </div>
-
-            <div className="space-y-6">
-              <div className="border-l-4 border-emerald-600 pl-4">
-                <h5 className="font-semibold text-gray-900 mb-2">Step 1: Open M-Pesa</h5>
-                <p className="text-gray-600">Go to M-Pesa on your phone and select "Send Money"</p>
-              </div>
-
-              <div className="border-l-4 border-emerald-600 pl-4">
-                <h5 className="font-semibold text-gray-900 mb-2">Step 2: Enter Phone Number</h5>
-                <p className="text-gray-600 mb-2">Send to either of our numbers:</p>
-                <div className="bg-gray-50 rounded-lg p-3">
-                  <p className="font-mono text-lg font-semibold text-emerald-600">0117 684 003</p>
-                  <p className="text-sm text-gray-500">or</p>
-                  <p className="font-mono text-lg font-semibold text-emerald-600">0735 269 968</p>
-                </div>
-              </div>
-
-              <div className="border-l-4 border-emerald-600 pl-4">
-                <h5 className="font-semibold text-gray-900 mb-2">Step 3: Enter Amount</h5>
-                <p className="text-gray-600">
-                  {finalAmount > 0 
-                    ? `Enter KES ${finalAmount.toLocaleString()} as your donation amount`
-                    : "Enter your desired donation amount"
-                  }
-                </p>
-              </div>
-
-              <div className="border-l-4 border-emerald-600 pl-4">
-                <h5 className="font-semibold text-gray-900 mb-2">Step 4: Complete Transaction</h5>
-                <p className="text-gray-600">Enter your M-Pesa PIN and confirm the transaction</p>
-              </div>
-            </div>
-
-            <div className="mt-8 p-4 bg-blue-50 rounded-lg">
-              <h5 className="font-semibold text-blue-900 mb-2">📧 Confirmation</h5>
-              <p className="text-blue-800 text-sm">
-                After sending your donation, please contact us at{" "}
-                <a href="mailto:presbyterianmedcare2025@gmail.com" className="underline">
-                  presbyterianmedcare2025@gmail.com
-                </a>{" "}
-                with your M-Pesa confirmation message to receive a receipt and thank you note.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Impact Section */}
-        <div className="mt-16 bg-white rounded-2xl p-8 shadow-lg">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Your Impact</h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🏥</span>
-              </div>
-              <h4 className="font-semibold text-gray-900 mb-2">KES 1,000</h4>
-              <p className="text-gray-600 text-sm">Provides one day of meals for a patient in recovery</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">💬</span>
-              </div>
-              <h4 className="font-semibold text-gray-900 mb-2">KES 5,000</h4>
-              <p className="text-gray-600 text-sm">Funds one therapy session for someone in need</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🏠</span>
-              </div>
-              <h4 className="font-semibold text-gray-900 mb-2">KES 25,000</h4>
-              <p className="text-gray-600 text-sm">Sponsors one week of residential treatment</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Thank You Message */}
-        <div className="mt-12 text-center">
-          <div className="bg-emerald-600 text-white rounded-2xl p-8">
-            <h3 className="text-2xl font-bold mb-4">Thank You for Your Generosity</h3>
-            <p className="text-emerald-100 max-w-2xl mx-auto">
-              Your donation directly supports individuals and families on their journey to recovery. 
-              Together, we're building a community where healing and hope flourish. Every contribution, 
-              no matter the size, makes a meaningful difference.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+        <Paper sx={{ mt: 4, p: 4, textAlign: 'center', backgroundColor: 'primary.main', color: 'white', borderRadius: 4 }}>
+          <Typography variant="h5" fontWeight="bold" gutterBottom>Thank You for Your Generosity</Typography>
+          <Typography sx={{ maxWidth: '700px', mx: 'auto', color: 'primary.lightest' }}>
+            Your donation directly supports individuals and families on their journey to recovery. Together, we're building a community where healing and hope flourish.
+          </Typography>
+        </Paper>
+      </Container>
+    </Box>
   );
 }
+
+const InstructionStep = ({ num, title, text, children }: { num: string, title: string, text?: string, children?: React.ReactNode }) => (
+  <Box sx={{ display: 'flex', gap: 2 }}>
+    <Avatar sx={{ bgcolor: 'primary.main', color: 'white' }}>{num}</Avatar>
+    <Box>
+      <Typography fontWeight="bold">{title}</Typography>
+      {text && <Typography color="text.secondary">{text}</Typography>}
+      {children}
+    </Box>
+  </Box>
+);

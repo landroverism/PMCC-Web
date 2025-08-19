@@ -1,99 +1,64 @@
-import {
-  ClipboardList,
-  Hospital,
-  Stethoscope,
-  MessageSquare,
-  BookOpen,
-  Shield,
-  HeartHandshake,
-  Users,
-} from "lucide-react";
+import { Box, Button, Container, Grid, Paper, Typography } from '@mui/material';
+import { Link } from 'react-scroll';
+import PlaylistAddCheckIcon from '@mui/icons-material/PlaylistAddCheck';
+import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
+import MedicalServicesIcon from '@mui/icons-material/MedicalServices';
+import ForumIcon from '@mui/icons-material/Forum';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
+import SupportAgentIcon from '@mui/icons-material/SupportAgent';
+import GroupsIcon from '@mui/icons-material/Groups';
+
+const services = [
+  { icon: <PlaylistAddCheckIcon fontSize="large" color="primary" />, title: "Screening & Assessment", description: "Comprehensive evaluation to understand your unique needs and create personalized treatment plans." },
+  { icon: <LocalHospitalIcon fontSize="large" color="primary" />, title: "Detoxification", description: "Safe, medically supervised detox process with 24/7 monitoring and support." },
+  { icon: <MedicalServicesIcon fontSize="large" color="primary" />, title: "Psychiatric Review", description: "Expert psychiatric evaluation and medication management by qualified professionals." },
+  { icon: <ForumIcon fontSize="large" color="primary" />, title: "Individual & Group Therapy", description: "One-on-one counseling and group sessions to address personal and social aspects of recovery." },
+  { icon: <MenuBookIcon fontSize="large" color="primary" />, title: "Psychoeducation", description: "Educational programs to help you understand your condition and develop coping strategies." },
+  { icon: <HealthAndSafetyIcon fontSize="large" color="primary" />, title: "Relapse Prevention", description: "Tools and strategies to maintain sobriety and prevent relapse after treatment." },
+  { icon: <SupportAgentIcon fontSize="large" color="primary" />, title: "Aftercare Support", description: "Ongoing support and resources to help you maintain recovery in your daily life." },
+  { icon: <GroupsIcon fontSize="large" color="primary" />, title: "Family Therapy", description: "Involving family members in the healing process to rebuild relationships and support systems." },
+];
 
 export default function Services() {
-  const services = [
-    {
-      icon: <ClipboardList className="w-8 h-8 text-emerald-600" />,
-      title: "Screening & Assessment",
-      description: "Comprehensive evaluation to understand your unique needs and create personalized treatment plans."
-    },
-    {
-      icon: <Hospital className="w-8 h-8 text-emerald-600" />,
-      title: "Detoxification",
-      description: "Safe, medically supervised detox process with 24/7 monitoring and support."
-    },
-    {
-      icon: <Stethoscope className="w-8 h-8 text-emerald-600" />,
-      title: "Psychiatric Review",
-      description: "Expert psychiatric evaluation and medication management by qualified professionals."
-    },
-    {
-      icon: <MessageSquare className="w-8 h-8 text-emerald-600" />,
-      title: "Individual & Group Therapy",
-      description: "One-on-one counseling and group sessions to address personal and social aspects of recovery."
-    },
-    {
-      icon: <BookOpen className="w-8 h-8 text-emerald-600" />,
-      title: "Psychoeducation",
-      description: "Educational programs to help you understand your condition and develop coping strategies."
-    },
-    {
-      icon: <Shield className="w-8 h-8 text-emerald-600" />,
-      title: "Relapse Prevention",
-      description: "Tools and strategies to maintain sobriety and prevent relapse after treatment."
-    },
-    {
-      icon: <HeartHandshake className="w-8 h-8 text-emerald-600" />,
-      title: "Aftercare Support",
-      description: "Ongoing support and resources to help you maintain recovery in your daily life."
-    },
-    {
-      icon: <Users className="w-8 h-8 text-emerald-600" />,
-      title: "Family Therapy",
-      description: "Involving family members in the healing process to rebuild relationships and support systems."
-    }
-  ];
-
   return (
-    <section id="services" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+    <Box id="services" sx={{ py: 10, backgroundColor: 'background.default' }}>
+      <Container maxWidth="lg">
+        <Box sx={{ textAlign: 'center', mb: 8 }}>
+          <Typography variant="h4" component="h2" fontWeight="bold" gutterBottom>
             Our Services
-          </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            We offer a comprehensive range of services designed to support your journey 
-            to recovery and mental wellness at every stage.
-          </p>
-        </div>
+          </Typography>
+          <Typography variant="h6" color="text.secondary" sx={{ maxWidth: '800px', mx: 'auto' }}>
+            We offer a comprehensive range of services designed to support your journey to recovery and mental wellness at every stage.
+          </Typography>
+        </Box>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((service, index) => (
-            <div key={index} className="bg-gray-50 p-6 rounded-xl hover:bg-emerald-50 transition-colors group">
-              <div className="mb-4 group-hover:scale-110 transition-transform">{service.icon}</div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">{service.title}</h3>
-              <p className="text-gray-600 text-sm">{service.description}</p>
-            </div>
+        <Grid container spacing={3}>
+          {services.map((service) => (
+            <Grid item xs={12} sm={6} md={3} key={service.title}>
+              <Paper variant="outlined" sx={{ p: 3, height: '100%', transition: 'border-color 0.3s', '&:hover': { borderColor: 'primary.main' } }}>
+                <Box sx={{ mb: 2 }}>{service.icon}</Box>
+                <Typography variant="h6" fontWeight="bold" gutterBottom>{service.title}</Typography>
+                <Typography variant="body2" color="text.secondary">{service.description}</Typography>
+              </Paper>
+            </Grid>
           ))}
-        </div>
+        </Grid>
 
-        <div className="mt-16 text-center">
-          <div className="bg-emerald-600 text-white rounded-2xl p-8 md:p-12">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">
-              Ready to Begin Your Healing Journey?
-            </h3>
-            <p className="text-emerald-100 mb-6 max-w-2xl mx-auto">
-              Our compassionate team is here to support you every step of the way. 
-              Contact us today to learn more about our services and how we can help.
-            </p>
-            <a
-              href="#contact"
-              className="bg-white text-emerald-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-block"
-            >
+        <Paper sx={{ mt: 10, p: { xs: 4, md: 8 }, textAlign: 'center', backgroundColor: 'secondary.main', color: 'white', borderRadius: 2 }}>
+          <Typography variant="h4" component="h3" fontWeight="bold" gutterBottom>
+            Ready to Begin Your Healing Journey?
+          </Typography>
+          <Typography sx={{ mb: 4, maxWidth: '700px', mx: 'auto', color: 'secondary.light' }}>
+            Our compassionate team is here to support you every step of the way. Contact us today to learn more about our services and how we can help.
+          </Typography>
+          <Link to="contact" smooth={true} duration={500}>
+            <Button variant="contained" sx={{ backgroundColor: 'white', color: 'secondary.main', '&:hover': { backgroundColor: 'grey.200' } }} size="large">
               Get Started Today
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
+            </Button>
+          </Link>
+        </Paper>
+      </Container>
+    </Box>
   );
 }

@@ -1,4 +1,3 @@
-import { Toaster } from "sonner";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -14,20 +13,21 @@ import Footer from "./components/Footer";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white">
+    <>
       <Header />
-      <Hero />
-      <About />
-      <Conditions />
-      <Services />
-      <Testimonials />
-      <Team />
-      <Gallery />
-      <FAQ />
-      <Donations />
-      <Contact />
+      <main>
+        <Hero />
+        <About />
+        <Conditions />
+        <Services />
+        <Testimonials />
+        <Team />
+        <Gallery />
+        <FAQ />
+        <Donations />
+        <Contact />
+      </main>
       <Footer />
-      <Toaster />
-    </div>
+    </>
   );
 }
