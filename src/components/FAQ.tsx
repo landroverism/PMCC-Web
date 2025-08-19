@@ -43,7 +43,7 @@ export default function FAQ() {
           <Typography variant="h5" fontWeight="bold" gutterBottom>
             Still Have Questions?
           </Typography>
-          <Typography sx={{ mb: 3, color: 'secondary.light' }}>
+          <Typography sx={{ mb: 3, color: 'white', opacity: 0.9 }}>
             Our team is here to help. Contact us for personalized answers to your questions.
           </Typography>
           <Link to="contact" smooth={true} duration={500}>

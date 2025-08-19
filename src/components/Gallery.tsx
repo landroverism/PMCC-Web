@@ -81,7 +81,13 @@ export default function Gallery() {
         <TabPanel value={value} index={0}>
           <Grid container spacing={3}>
             {currentFacilities.map((item) => (
-              <Grid item xs={12} sm={6} md={3} key={item.title}>
+              <Grid
+                key={item.title}
+                size={{
+                  xs: 12,
+                  sm: 6,
+                  md: 3
+                }}>
                 <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
                   <CardMedia
                     component="img"
@@ -103,7 +109,13 @@ export default function Gallery() {
         <TabPanel value={value} index={1}>
           <Grid container spacing={3}>
             {futurePlans.map((item) => (
-              <Grid item xs={12} sm={6} md={3} key={item.title}>
+              <Grid
+                key={item.title}
+                size={{
+                  xs: 12,
+                  sm: 6,
+                  md: 3
+                }}>
                 <Card sx={{ textAlign: 'center', p: 2, height: '100%', border: 1, borderColor: 'secondary.light' }}>
                   <Avatar sx={{ width: 64, height: 64, margin: '0 auto 16px', bgcolor: 'secondary.lightest', color: 'secondary.main' }}>{item.icon}</Avatar>
                   <Chip label={item.category} color="secondary" size="small" sx={{ mb: 1 }} />

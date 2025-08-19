@@ -48,9 +48,15 @@ export default function About() {
           </Typography>
         </Box>
 
-        <Grid container spacing={4} sx={{ mb: 10 }}>
+                <Grid container spacing={4} sx={{ mb: 10 }}>
           {features.map((feature) => (
-            <Grid item xs={12} sm={6} md={3} key={feature.title}>
+            <Grid
+              key={feature.title}
+              size={{
+                xs: 12,
+                sm: 6,
+                md: 3
+              }}>
               <Paper elevation={0} sx={{ textAlign: 'center', p: 3, backgroundColor: 'grey.100', height: '100%' }}>
                 <Box sx={{ mb: 2 }}>{feature.icon}</Box>
                 <Typography variant="h6" fontWeight="bold" gutterBottom>{feature.title}</Typography>
@@ -61,8 +67,12 @@ export default function About() {
         </Grid>
 
         <Paper elevation={0} sx={{ p: { xs: 3, md: 6 }, backgroundColor: 'primary.lightest', borderRadius: 2 }}>
-          <Grid container spacing={4} alignItems="center">
-            <Grid item xs={12} lg={6}>
+                    <Grid container spacing={4} alignItems="center">
+            <Grid
+              size={{
+                xs: 12,
+                lg: 6
+              }}>
               <Typography variant="h5" component="h3" fontWeight="bold" gutterBottom>
                 Our Mission
               </Typography>
@@ -73,7 +83,11 @@ export default function About() {
                 Located in the heart of Nakuru
               </Typography>
             </Grid>
-            <Grid item xs={12} lg={6}>
+            <Grid
+              size={{
+                xs: 12,
+                lg: 6
+              }}>
               <Box
                 component="img"
                 src="/images/tree.jpeg"

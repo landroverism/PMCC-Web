@@ -9,6 +9,7 @@ import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import GroupsIcon from '@mui/icons-material/Groups';
 
+
 const services = [
   { icon: <PlaylistAddCheckIcon fontSize="large" color="primary" />, title: "Screening & Assessment", description: "Comprehensive evaluation to understand your unique needs and create personalized treatment plans." },
   { icon: <LocalHospitalIcon fontSize="large" color="primary" />, title: "Detoxification", description: "Safe, medically supervised detox process with 24/7 monitoring and support." },
@@ -35,8 +36,26 @@ export default function Services() {
 
         <Grid container spacing={3}>
           {services.map((service) => (
-            <Grid item xs={12} sm={6} md={3} key={service.title}>
-              <Paper variant="outlined" sx={{ p: 3, height: '100%', transition: 'border-color 0.3s', '&:hover': { borderColor: 'primary.main' } }}>
+                        <Grid
+                          key={service.title}
+                          size={{
+                            xs: 12,
+                            sm: 6,
+                            md: 3
+                          }}>
+              <Paper 
+                variant="outlined" 
+                sx={{
+                  p: 3, 
+                  height: '100%', 
+                  transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s',
+                  '&:hover': { 
+                    transform: 'translateY(-8px)',
+                    boxShadow: '0 10px 20px rgba(0,0,0,0.12)',
+                    borderColor: 'primary.main', 
+                  }
+                }}
+              >
                 <Box sx={{ mb: 2 }}>{service.icon}</Box>
                 <Typography variant="h6" fontWeight="bold" gutterBottom>{service.title}</Typography>
                 <Typography variant="body2" color="text.secondary">{service.description}</Typography>

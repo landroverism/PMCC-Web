@@ -49,7 +49,13 @@ export default function Conditions() {
 
         <Grid container spacing={4}>
           {conditions.map((condition) => (
-            <Grid item xs={12} md={6} lg={4} key={condition.title}>
+            <Grid
+              key={condition.title}
+              size={{
+                xs: 12,
+                md: 6,
+                lg: 4
+              }}>
               <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', transition: 'box-shadow 0.3s', '&:hover': { boxShadow: 6 } }}>
                 <CardContent sx={{ flexGrow: 1 }}>
                   <Typography variant="h3" component="div" sx={{ mb: 2 }}>

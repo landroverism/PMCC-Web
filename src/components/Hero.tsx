@@ -25,8 +25,10 @@ export default function Hero() {
       sx={{
         position: 'relative',
         backgroundImage: `url(${HeroBg})`,
-        backgroundSize: 'cover',
+        backgroundAttachment: 'fixed',
         backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
         py: { xs: 10, md: 20 },
         color: 'white',
         textAlign: 'center',

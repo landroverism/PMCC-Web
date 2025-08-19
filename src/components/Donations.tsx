@@ -46,7 +46,11 @@ export default function Donations() {
         </Box>
 
         <Grid container spacing={4}>
-          <Grid item xs={12} lg={6}>
+          <Grid
+            size={{
+              xs: 12,
+              lg: 6
+            }}>
             <Paper elevation={3} sx={{ p: 4, borderRadius: 4 }}>
               <Typography variant="h5" fontWeight="bold" gutterBottom>Make a Donation</Typography>
               <Typography variant="subtitle1" gutterBottom>Select Donation Amount (KES)</Typography>
@@ -71,7 +75,11 @@ export default function Donations() {
             </Paper>
           </Grid>
 
-          <Grid item xs={12} lg={6}>
+          <Grid
+            size={{
+              xs: 12,
+              lg: 6
+            }}>
             <Paper elevation={3} sx={{ p: 4, borderRadius: 4, height: '100%' }}>
               <Typography variant="h5" fontWeight="bold" gutterBottom>Payment Instructions</Typography>
               <Paper sx={{ p: 2, mb: 3, backgroundColor: 'primary.lightest' }}>
@@ -105,7 +113,13 @@ export default function Donations() {
           <Typography variant="h5" component="h3" fontWeight="bold" textAlign="center" gutterBottom>Your Impact</Typography>
           <Grid container spacing={4} mt={2}>
             {impactItems.map((item) => (
-              <Grid item xs={12} md={4} key={item.amount} sx={{ textAlign: 'center' }}>
+              <Grid
+                key={item.amount}
+                sx={{ textAlign: 'center' }}
+                size={{
+                  xs: 12,
+                  md: 4
+                }}>
                 <Avatar sx={{ width: 64, height: 64, bgcolor: 'primary.lightest', color: 'primary.main', mx: 'auto', mb: 2 }}>{item.icon}</Avatar>
                 <Typography variant="h6" fontWeight="bold">{item.amount}</Typography>
                 <Typography color="text.secondary">{item.text}</Typography>

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from 'convex/react';
 import { api } from '../../convex/_generated/api';
-import { Box, Container, Grid, Paper, Typography, TextField, Stack, Avatar, Link as MuiLink, Snackbar, Alert } from '@mui/material';
-import { LoadingButton } from '@mui/lab';
+import { Box, Container, Grid, Paper, Typography, TextField, Stack, Avatar, Link as MuiLink, Snackbar, Alert, Button, CircularProgress } from '@mui/material';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
@@ -54,7 +53,12 @@ export default function Contact() {
 
         <Paper elevation={3} sx={{ borderRadius: 4, overflow: 'hidden' }}>
           <Grid container>
-            <Grid item xs={12} md={5} sx={{ p: 4, background: 'linear-gradient(to bottom, #004d40, #00796b)' , color: 'white' }}>
+            <Grid
+              sx={{ p: 4, background: 'linear-gradient(to bottom, #004d40, #00796b)' , color: 'white' }}
+              size={{
+                xs: 12,
+                md: 5
+              }}>
               <Typography variant="h5" fontWeight="bold" gutterBottom>Get in Touch</Typography>
               <Stack spacing={3}>
                 {contactDetails.map((item) => (
@@ -76,7 +80,12 @@ export default function Contact() {
               </Box>
             </Grid>
 
-            <Grid item xs={12} md={7} sx={{ p: 4 }}>
+            <Grid
+              sx={{ p: 4 }}
+              size={{
+                xs: 12,
+                md: 7
+              }}>
               <Typography variant="h5" fontWeight="bold" gutterBottom>Send Us a Message</Typography>
               <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
                 <Stack spacing={2.5}>
@@ -84,7 +93,9 @@ export default function Contact() {
                   <TextField label="Email Address" name="email" type="email" required value={formData.email} onChange={handleChange} />
                   <TextField label="Phone Number" name="phone" type="tel" required value={formData.phone} onChange={handleChange} />
                   <TextField label="Message" name="message" multiline rows={5} required value={formData.message} onChange={handleChange} />
-                  <LoadingButton type="submit" loading={isSubmitting} variant="contained" size="large" fullWidth>Send Message</LoadingButton>
+                                    <Button type="submit" variant="contained" size="large" fullWidth disabled={isSubmitting}>
+                    {isSubmitting ? <CircularProgress size={24} color="inherit" /> : "Send Message"}
+                  </Button>
                 </Stack>
               </Box>
               <Paper sx={{ mt: 2.5, p: 2, backgroundColor: 'secondary.lightest', borderRadius: 2 }}>

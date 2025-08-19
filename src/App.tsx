@@ -10,6 +10,7 @@ import FAQ from "./components/FAQ";
 import Donations from "./components/Donations";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import AnimateOnScroll from "./components/AnimateOnScroll";
 
 export default function App() {
   return (
@@ -17,15 +18,33 @@ export default function App() {
       <Header />
       <main>
         <Hero />
-        <About />
-        <Conditions />
-        <Services />
-        <Testimonials />
-        <Team />
-        <Gallery />
-        <FAQ />
-        <Donations />
-        <Contact />
+        <AnimateOnScroll>
+          <About />
+        </AnimateOnScroll>
+        <AnimateOnScroll>
+          <Conditions />
+        </AnimateOnScroll>
+        <AnimateOnScroll>
+          <Services />
+        </AnimateOnScroll>
+        <AnimateOnScroll>
+          <Testimonials />
+        </AnimateOnScroll>
+        <AnimateOnScroll>
+          <Team />
+        </AnimateOnScroll>
+        <AnimateOnScroll>
+          <Gallery />
+        </AnimateOnScroll>
+        <AnimateOnScroll>
+          <FAQ />
+        </AnimateOnScroll>
+        <AnimateOnScroll>
+          <Donations />
+        </AnimateOnScroll>
+        <AnimateOnScroll>
+          <Contact />
+        </AnimateOnScroll>
       </main>
       <Footer />
     </>

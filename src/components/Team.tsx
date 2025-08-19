@@ -24,8 +24,26 @@ export default function Team() {
 
         <Grid container spacing={4}>
           {teamMembers.map((member) => (
-            <Grid item xs={12} sm={6} md={4} key={member.name}>
-              <Card variant="outlined" sx={{ textAlign: 'center', p: 3, height: '100%' }}>
+            <Grid
+              key={member.name}
+              size={{
+                xs: 12,
+                sm: 6,
+                md: 4
+              }}>
+                            <Card 
+                variant="outlined" 
+                sx={{
+                  textAlign: 'center', 
+                  p: 3, 
+                  height: '100%',
+                  transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+                  '&:hover': {
+                    transform: 'translateY(-8px)',
+                    boxShadow: '0 10px 20px rgba(0,0,0,0.12)',
+                  }
+                }}
+              >
                 <Avatar
                   alt={member.name}
                   src={member.avatar.image}
