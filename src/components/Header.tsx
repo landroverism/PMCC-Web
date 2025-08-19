@@ -74,15 +74,22 @@ export default function Header() {
     <>
       <HideOnScroll>
         <AppBar position="sticky" color="secondary">
-          <Toolbar sx={{ justifyContent: 'space-between' }}>
+          <Toolbar sx={{ justifyContent: 'space-between', py: { xs: 1.5, md: 2.5 } }}>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
-              <img src="/images/pmcc-logo.png" alt="PMCC Logo" style={{ width: 48, height: 48, marginRight: 16 }} />
+              <Box
+                component="img"
+                src="/images/pmcc-logo.png"
+                alt="PMCC Logo"
+                sx={{ width: { xs: 56, md: 72 }, height: { xs: 56, md: 72 }, mr: 2 }}
+              />
               <Box>
-                <Typography variant="h6" component="div" fontWeight="bold">
+                <Typography variant="h6" component="div" fontWeight="bold" sx={{ color: '#1E90FF', lineHeight: 1.1 }}>
                   Presbyterian
-                </Typography>
-                <Typography variant="caption">
+                  {' '}
                   Medical Care Centre
+                </Typography>
+                <Typography variant="subtitle2" sx={{ color: '#1E90FF', mt: 0.25 }}>
+                  Nakuru
                 </Typography>
               </Box>
             </Box>

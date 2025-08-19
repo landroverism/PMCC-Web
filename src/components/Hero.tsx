@@ -1,7 +1,6 @@
 import { Box, Button, Container, Stack, Typography } from '@mui/material';
 import { keyframes } from '@mui/system';
 import { Link } from 'react-scroll';
-import HeroBg from '../assets/hero-background.jpg';
 
 const pulse = keyframes`
   0% {
@@ -24,11 +23,11 @@ export default function Hero() {
       id="home"
       sx={{
         position: 'relative',
-        backgroundImage: `url(${HeroBg})`,
+        backgroundImage: 'url(/images/pmcc-logo.png)',
         backgroundAttachment: 'fixed',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
+        backgroundSize: { xs: '70%', md: '40%' },
         py: { xs: 10, md: 20 },
         color: 'white',
         textAlign: 'center',
@@ -39,7 +38,7 @@ export default function Hero() {
           left: 0,
           right: 0,
           bottom: 0,
-          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          backgroundColor: 'rgba(0, 0, 0, 0.6)',
         },
       }}
     >
@@ -93,7 +92,11 @@ export default function Hero() {
             </Button>
           </Link>
           <Link to="about" smooth={true} duration={500}>
-            <Button variant="outlined" color="secondary" size="large">
+            <Button
+              variant="contained"
+              size="large"
+              sx={{ bgcolor: 'white', color: 'secondary.main', '&:hover': { bgcolor: 'grey.200' } }}
+            >
               Learn More
             </Button>
           </Link>
