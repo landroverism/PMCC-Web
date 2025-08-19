@@ -47,8 +47,32 @@ export default function Header() {
       <List sx={{ flexGrow: 1 }}>
         {[...navItems, { name: "Contact", href: "contact" }].map((item) => (
           <ListItem key={item.name} disablePadding>
-            <ListItemButton component={Link} to={item.href} smooth={true} duration={500} sx={{ textAlign: 'center', py: 2 }} onClick={handleDrawerToggle}>
-              <ListItemText primary={item.name} primaryTypographyProps={{ fontWeight: 'bold' }} />
+            <ListItemButton 
+              component={Link} 
+              to={item.href} 
+              smooth={true} 
+              duration={500} 
+              sx={{ 
+                textAlign: 'center', 
+                py: 3,
+                mx: 2,
+                borderRadius: 2,
+                mb: 1,
+                '&:hover': {
+                  bgcolor: 'rgba(255, 255, 255, 0.1)',
+                  transform: 'translateX(8px)',
+                },
+                transition: 'all 0.3s ease',
+              }} 
+              onClick={handleDrawerToggle}
+            >
+              <ListItemText 
+                primary={item.name} 
+                primaryTypographyProps={{ 
+                  fontWeight: 600,
+                  fontSize: '1.1rem',
+                }} 
+              />
             </ListItemButton>
           </ListItem>
         ))}
@@ -94,16 +118,73 @@ export default function Header() {
               </Box>
             </Box>
 
-            <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+            <Box sx={{ 
+              display: { xs: 'none', md: 'flex' }, 
+              alignItems: 'center',
+              gap: 1
+            }}>
               {navItems.map((item) => (
                 <Link key={item.name} to={item.href} smooth={true} duration={500}>
-                  <Button color="inherit">{item.name}</Button>
+                  <Button 
+                    color="inherit"
+                    sx={{
+                      px: 3,
+                      py: 1.5,
+                      mx: 0.5,
+                      fontWeight: 600,
+                      fontSize: '0.95rem',
+                      textTransform: 'none',
+                      borderRadius: 2,
+                      position: 'relative',
+                      '&:hover': {
+                        bgcolor: 'rgba(255, 255, 255, 0.1)',
+                        transform: 'translateY(-1px)',
+                      },
+                      '&::after': {
+                        content: '""',
+                        position: 'absolute',
+                        bottom: 0,
+                        left: '50%',
+                        width: 0,
+                        height: 2,
+                        bgcolor: 'white',
+                        transition: 'all 0.3s ease',
+                        transform: 'translateX(-50%)',
+                      },
+                      '&:hover::after': {
+                        width: '80%',
+                      },
+                      transition: 'all 0.3s ease',
+                    }}
+                  >
+                    {item.name}
+                  </Button>
                 </Link>
               ))}
             </Box>
 
             <Link to="contact" smooth={true} duration={500}>
-              <Button variant="contained" sx={{ display: { xs: 'none', md: 'block' }, bgcolor: 'white', color: 'secondary.main', '&:hover': { bgcolor: 'grey.200' } }}>
+              <Button 
+                variant="contained" 
+                sx={{ 
+                  display: { xs: 'none', md: 'block' }, 
+                  bgcolor: 'white', 
+                  color: 'secondary.main',
+                  px: 4,
+                  py: 1.5,
+                  fontWeight: 700,
+                  fontSize: '0.95rem',
+                  textTransform: 'none',
+                  borderRadius: 3,
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                  '&:hover': { 
+                    bgcolor: 'grey.100',
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 6px 20px rgba(0,0,0,0.25)',
+                  },
+                  transition: 'all 0.3s ease',
+                }}
+              >
                 Get Help Now
               </Button>
             </Link>

@@ -11,6 +11,8 @@ import Donations from "./components/Donations";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import AnimateOnScroll from "./components/AnimateOnScroll";
+import FloatingContactButton from "./components/FloatingContactButton";
+import WhyChoosePMCC from "./components/WhyChoosePMCC";
 
 export default function App() {
   return (
@@ -20,6 +22,9 @@ export default function App() {
         <Hero />
         <AnimateOnScroll>
           <About />
+        </AnimateOnScroll>
+        <AnimateOnScroll>
+          <WhyChoosePMCC />
         </AnimateOnScroll>
         <AnimateOnScroll>
           <Conditions />
@@ -47,6 +52,7 @@ export default function App() {
         </AnimateOnScroll>
       </main>
       <Footer />
+      <FloatingContactButton />
     </>
   );
 }
