@@ -107,12 +107,12 @@ export default function Header() {
                 sx={{ width: { xs: 56, md: 72 }, height: { xs: 56, md: 72 }, mr: 2 }}
               />
               <Box>
-                <Typography variant="h6" component="div" fontWeight="bold" sx={{ color: '#1E90FF', lineHeight: 1.1 }}>
+                <Typography variant="h6" component="div" fontWeight="bold" sx={{ color: '#8bd5fc', lineHeight: 1.1 }}>
                   Presbyterian
                   {' '}
                   Medical Care Centre
                 </Typography>
-                <Typography variant="subtitle2" sx={{ color: '#1E90FF', mt: 0.25 }}>
+                <Typography variant="subtitle2" sx={{ color: 'white', mt: 0.25 }}>
                   Nakuru
                 </Typography>
               </Box>
