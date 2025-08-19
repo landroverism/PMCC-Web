@@ -68,7 +68,7 @@ export default function Services() {
           <Typography variant="h4" component="h3" fontWeight="bold" gutterBottom>
             Ready to Begin Your Healing Journey?
           </Typography>
-          <Typography sx={{ mb: 4, maxWidth: '700px', mx: 'auto', color: 'secondary.light' }}>
+          <Typography sx={{ mb: 4, maxWidth: '700px', mx: 'auto', color: 'white' }}>
             Our compassionate team is here to support you every step of the way. Contact us today to learn more about our services and how we can help.
           </Typography>
           <Link to="contact" smooth={true} duration={500}>
