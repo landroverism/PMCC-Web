@@ -83,8 +83,8 @@ export default function About() {
             <Grid size={{ xs: 12, lg: 6 }}>
               <Box
                 component="img"
-                src="/images/staff-2.jpeg"
-                alt="Peaceful environment at PMCC"
+                src="/images/front-view.jpeg"
+                alt="Front view of PMCC facility"
                 sx={{
                   width: '100%',
                   height: 'auto',
