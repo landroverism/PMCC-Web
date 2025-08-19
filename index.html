@@ -10,9 +10,47 @@
     <title>Presbyterian Medical Care Centre</title>
 
     <meta property="og:image" content="/og-preview.png" />
+    <style>
+      /* Lightweight full-screen splash screen */
+      #splash {
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100dvh;
+        background: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        z-index: 9999;
+        opacity: 1;
+        transition: opacity 400ms ease;
+      }
+      #splash.splash--hide {
+        opacity: 0;
+        pointer-events: none;
+      }
+      #splash img {
+        width: clamp(160px, 40vmin, 420px);
+        height: auto;
+        object-fit: contain;
+      }
+      #splash .splash-text {
+        margin-top: 16px;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+        font-weight: 600;
+        font-size: clamp(1.25rem, 4vmin, 2.25rem);
+        color: #111827;
+        letter-spacing: 0.02em;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
+    <div id="splash" aria-hidden="true">
+      <img src="/images/pmcc-logo.png" alt="PMCC logo" />
+      <div class="splash-text">PMCC Nakuru</div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

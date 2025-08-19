@@ -7,7 +7,9 @@ import App from "./App";
 
 const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL as string);
 
-createRoot(document.getElementById("root")!).render(
+const rootElement = document.getElementById("root")!;
+
+createRoot(rootElement).render(
   <ConvexAuthProvider client={convex}>
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -15,3 +17,22 @@ createRoot(document.getElementById("root")!).render(
     </ThemeProvider>
   </ConvexAuthProvider>,
 );
+
+// Fade out and remove the splash screen after React mounts
+const hideSplashScreen = () => {
+  const splash = document.getElementById("splash");
+  if (!splash) return;
+  // Trigger fade-out
+  splash.classList.add("splash--hide");
+  // Remove from DOM after transition
+  window.setTimeout(() => {
+    splash.remove();
+  }, 450);
+};
+
+// Wait ~4 seconds after first paint, then hide the splash
+requestAnimationFrame(() => {
+  window.setTimeout(() => {
+    hideSplashScreen();
+  }, 4000);
+});
