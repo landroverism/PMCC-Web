@@ -98,6 +98,7 @@ export default function About() {
                   borderRadius: 2,
                   boxShadow: 3,
                   objectFit: 'cover',
+                  objectPosition: 'center 25%',
                   maxHeight: 350
                 }}
               />
