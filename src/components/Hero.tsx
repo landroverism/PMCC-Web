@@ -61,7 +61,7 @@ export default function Hero() {
             sx={{
               display: 'block',
               mt: { xs: 1, md: 2 },
-              color: 'primary.light',
+              color: 'yellow',
               animation: `${pulse} 2.5s infinite ease-in-out`,
             }}
           >
