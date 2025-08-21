@@ -4,8 +4,11 @@ import { ConvexReactClient } from "convex/react";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import theme from "./theme";
 import App from "./App";
+import { initAnalytics } from "./lib/analytics";
 
 const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL as string);
+
+initAnalytics();
 
 const rootElement = document.getElementById("root")!;
 

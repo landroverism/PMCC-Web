@@ -85,6 +85,7 @@ export default function About() {
                 component="img"
                 src="/images/front-view.jpeg"
                 alt="Front view of PMCC facility"
+                loading="lazy"
                 sx={{
                   width: '100%',
                   height: 'auto',

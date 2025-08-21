@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { AppBar, Toolbar, Typography, Button, IconButton, Drawer, List, ListItem, ListItemText, Box, Divider, ListItemButton, useScrollTrigger, Slide } from '@mui/material';
+import { AppBar, Toolbar, Typography, Button, IconButton, Drawer, List, ListItem, ListItemText, Box, Divider, ListItemButton, useScrollTrigger, Slide, Chip } from '@mui/material';
 import DehazeIcon from '@mui/icons-material/Dehaze';
 import { Link } from 'react-scroll';
+import ChurchIcon from '@mui/icons-material/Church';
 
 const navItems = [
   { name: "Home", href: "home" },
@@ -104,6 +105,8 @@ export default function Header() {
                 component="img"
                 src="/images/pmcc-logo.png"
                 alt="PMCC Logo"
+                loading="eager"
+                fetchpriority="high"
                 sx={{ width: { xs: 56, md: 72 }, height: { xs: 56, md: 72 }, mr: 2 }}
               />
               <Box>
@@ -115,6 +118,19 @@ export default function Header() {
                 <Typography variant="subtitle2" sx={{ color: 'white', mt: 0.25 }}>
                   Nakuru
                 </Typography>
+              </Box>
+              <Box sx={{ ml: 2, display: { xs: 'none', md: 'block' } }}>
+                <Chip 
+                  icon={<ChurchIcon />} 
+                  label="Affiliated: PCEA Nakuru" 
+                  sx={{
+                    bgcolor: 'white',
+                    color: 'secondary.main',
+                    fontWeight: 700,
+                    borderRadius: 2,
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.15)'
+                  }}
+                />
               </Box>
             </Box>
 

@@ -1,6 +1,7 @@
 import { Fab, Tooltip, Box, Typography, Fade } from '@mui/material';
 import { Phone, WhatsApp, Email } from '@mui/icons-material';
 import { useState } from 'react';
+import { trackContact } from '../lib/analytics';
 
 export default function FloatingContactButton() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -9,20 +10,23 @@ export default function FloatingContactButton() {
     {
       icon: <Phone />,
       label: 'Call Now',
-      action: 'tel:+254700000000',
-      color: '#25D366'
+      action: 'tel:0117684003',
+      color: '#25D366',
+      method: 'call' as const
     },
     {
       icon: <WhatsApp />,
       label: 'WhatsApp',
-      action: 'https://wa.me/254700000000',
-      color: '#25D366'
+      action: 'https://wa.me/0117684003',
+      color: '#25D366',
+      method: 'whatsapp' as const
     },
     {
       icon: <Email />,
       label: 'Email',
       action: 'mailto:info@pmcc-nakuru.co.ke',
-      color: '#1976d2'
+      color: '#1976d2',
+      method: 'email' as const
     }
   ];
 
@@ -42,7 +46,7 @@ export default function FloatingContactButton() {
       {/* Contact Methods */}
       <Fade in={isExpanded} timeout={300}>
         <Box sx={{ display: isExpanded ? 'flex' : 'none', flexDirection: 'column', gap: 1 }}>
-          {contactMethods.map((method, index) => (
+          {contactMethods.map((method) => (
             <Tooltip key={method.label} title={method.label} placement="left">
               <Fab
                 size="medium"
@@ -55,8 +59,9 @@ export default function FloatingContactButton() {
                 }}
                 component="a"
                 href={method.action}
-                target="_blank"
-                rel="noopener noreferrer"
+                target={method.method === 'email' ? undefined : '_blank'}
+                rel={method.method === 'email' ? undefined : 'noopener noreferrer'}
+                onClick={() => trackContact(method.method, 'floating_button')}
               >
                 {method.icon}
               </Fab>

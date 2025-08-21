@@ -13,10 +13,13 @@ import Footer from "./components/Footer";
 import AnimateOnScroll from "./components/AnimateOnScroll";
 import FloatingContactButton from "./components/FloatingContactButton";
 import WhyChoosePMCC from "./components/WhyChoosePMCC";
+import CrisisBar from "./components/CrisisBar";
+import LocationDirections from "./components/LocationDirections";
 
 export default function App() {
   return (
     <>
+      <CrisisBar />
       <Header />
       <main>
         <Hero />
@@ -49,6 +52,9 @@ export default function App() {
         </AnimateOnScroll>
         <AnimateOnScroll>
           <Contact />
+        </AnimateOnScroll>
+        <AnimateOnScroll>
+          <LocationDirections />
         </AnimateOnScroll>
       </main>
       <Footer />
