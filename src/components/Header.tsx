@@ -3,6 +3,8 @@ import { AppBar, Toolbar, Typography, Button, IconButton, Drawer, List, ListItem
 import DehazeIcon from '@mui/icons-material/Dehaze';
 import { Link } from 'react-scroll';
 import ChurchIcon from '@mui/icons-material/Church';
+import DirectionsIcon from '@mui/icons-material/Directions';
+import { trackEvent } from '../lib/analytics';
 
 const navItems = [
   { name: "Home", href: "home" },
@@ -128,7 +130,8 @@ export default function Header() {
                     color: 'secondary.main',
                     fontWeight: 700,
                     borderRadius: 2,
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.15)'
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+                    '& .MuiChip-icon': { color: 'secondary.main', fontSize: 20 }
                   }}
                 />
               </Box>
@@ -177,33 +180,35 @@ export default function Header() {
                   </Button>
                 </Link>
               ))}
-            </Box>
 
-            <Link to="contact" smooth={true} duration={500}>
-              <Button 
-                variant="contained" 
-                sx={{ 
-                  display: { xs: 'none', md: 'block' }, 
-                  bgcolor: 'white', 
-                  color: 'secondary.main',
-                  px: 4,
-                  py: 1.5,
-                  fontWeight: 700,
-                  fontSize: '0.95rem',
-                  textTransform: 'none',
-                  borderRadius: 3,
-                  boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-                  '&:hover': { 
-                    bgcolor: 'grey.100',
-                    transform: 'translateY(-2px)',
-                    boxShadow: '0 6px 20px rgba(0,0,0,0.25)',
-                  },
-                  transition: 'all 0.3s ease',
-                }}
-              >
-                Get Help Now
-              </Button>
-            </Link>
+              {/* Removed Get Directions button from navbar; it's now in the Hero section */}
+
+              <Link to="contact" smooth={true} duration={500}>
+                <Button 
+                  variant="contained" 
+                  sx={{ 
+                    display: { xs: 'none', md: 'block' }, 
+                    bgcolor: 'white', 
+                    color: 'secondary.main',
+                    px: 4,
+                    py: 1.5,
+                    fontWeight: 700,
+                    fontSize: '0.95rem',
+                    textTransform: 'none',
+                    borderRadius: 3,
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                    '&:hover': { 
+                      bgcolor: 'grey.100',
+                      transform: 'translateY(-2px)',
+                      boxShadow: '0 6px 20px rgba(0,0,0,0.25)',
+                    },
+                    transition: 'all 0.3s ease',
+                  }}
+                >
+                  Get Help Now
+                </Button>
+              </Link>
+            </Box>
 
             <IconButton
               color="inherit"

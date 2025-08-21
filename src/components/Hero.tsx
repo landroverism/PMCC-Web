@@ -1,8 +1,8 @@
 import { Box, Button, Container, Stack, Typography } from '@mui/material';
 import { keyframes } from '@mui/system';
 import { Link } from 'react-scroll';
-import { Emergency, Phone, WhatsApp } from '@mui/icons-material';
-import { trackContact } from '../lib/analytics';
+import { Emergency, Phone, WhatsApp, Directions } from '@mui/icons-material';
+import { trackContact, trackEvent } from '../lib/analytics';
 
 const pulse = keyframes`
   0% {
@@ -20,6 +20,8 @@ const pulse = keyframes`
 `;
 
 export default function Hero() {
+  const mapsHref = 'https://www.google.com/maps/search/?api=1&query=Presbyterian%20Medical%20Care%20Centre%20Nakuru';
+
   return (
     <Box
       id="home"
@@ -133,6 +135,32 @@ export default function Hero() {
               Learn More
             </Button>
           </Link>
+          <Button
+            variant="outlined"
+            size="large"
+            startIcon={<Directions />}
+            sx={{ 
+              borderColor: 'white',
+              color: 'white',
+              fontSize: '1.05rem',
+              py: 1.5,
+              px: 4,
+              fontWeight: 700,
+              '&:hover': { 
+                borderColor: 'white',
+                bgcolor: 'rgba(255, 255, 255, 0.1)',
+                transform: 'translateY(-2px)'
+              },
+              transition: 'all 0.3s ease'
+            }}
+            component="a"
+            href={mapsHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackEvent('open_maps', { context: 'hero' })}
+          >
+            Get Directions
+          </Button>
         </Stack>
 
         {/* Emergency Contact Section */}
