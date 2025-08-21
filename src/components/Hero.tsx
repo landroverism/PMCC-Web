@@ -1,7 +1,7 @@
 import { Box, Button, Container, Stack, Typography } from '@mui/material';
 import { keyframes } from '@mui/system';
 import { Link } from 'react-scroll';
-import { Emergency, Phone, WhatsApp } from '@mui/icons-material';
+import { Emergency, Phone, WhatsApp, LocationOn } from '@mui/icons-material';
 
 const pulse = keyframes`
   0% {
@@ -132,6 +132,33 @@ export default function Hero() {
               Learn More
             </Button>
           </Link>
+          <Button
+            component="a"
+            href="https://www.google.com/maps/dir/?api=1&destination=Engashura%20-%20Kwa%20Buda%20Stage%2C%20Nakuru-Bahati%20Road%2C%20Nakuru%2C%20Kenya&travelmode=driving"
+            target="_blank"
+            rel="noopener"
+            variant="outlined"
+            size="large"
+            startIcon={<LocationOn sx={{ fontSize: 20 }} />}
+            sx={{ 
+              borderColor: 'white', 
+              color: 'white',
+              fontSize: '1.1rem',
+              py: 1.5,
+              px: 4,
+              fontWeight: 'bold',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+              '&:hover': { 
+                borderColor: 'white',
+                bgcolor: 'rgba(255, 255, 255, 0.1)',
+                transform: 'translateY(-2px)',
+                boxShadow: '0 6px 20px rgba(255, 255, 255, 0.3)'
+              },
+              transition: 'all 0.3s ease'
+            }}
+          >
+            Get Directions
+          </Button>
         </Stack>
 
         {/* Emergency Contact Section */}

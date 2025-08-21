@@ -71,12 +71,43 @@ export default function Contact() {
                   </Stack>
                 ))}
               </Stack>
-              <Box sx={{ mt: 4, height: 200, borderRadius: 2, bgcolor: 'rgba(0,0,0,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
-                <Box>
-                  <Typography variant="h5">🗺️</Typography>
-                  <Typography fontWeight="bold">Interactive Map</Typography>
-                  <Typography variant="caption">Engashura - Kwa Buda Stage, Nakuru</Typography>
+              <Box sx={{ mt: 4 }}>
+                <Box sx={{ height: 260, borderRadius: 2, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.2)' }}>
+                  <iframe
+                    title="PMCC Location Map"
+                    src="https://www.google.com/maps?q=Engashura%20-%20Kwa%20Buda%20Stage%2C%20Nakuru-Bahati%20Road%2C%20Nakuru%2C%20Kenya&z=15&output=embed"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    allowFullScreen
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
                 </Box>
+                <Stack direction="row" spacing={1} sx={{ mt: 2, flexWrap: 'wrap' }}>
+                  <Button
+                    component="a"
+                    href="https://www.google.com/maps/dir/?api=1&destination=Engashura%20-%20Kwa%20Buda%20Stage%2C%20Nakuru-Bahati%20Road%2C%20Nakuru%2C%20Kenya&travelmode=driving"
+                    target="_blank"
+                    rel="noopener"
+                    variant="contained"
+                    size="small"
+                  >
+                    Get Directions
+                  </Button>
+                  <Button
+                    component="a"
+                    href="https://www.google.com/maps/search/?api=1&query=Engashura%20-%20Kwa%20Buda%20Stage%2C%20Nakuru-Bahati%20Road%2C%20Nakuru%2C%20Kenya"
+                    target="_blank"
+                    rel="noopener"
+                    variant="outlined"
+                    color="inherit"
+                    size="small"
+                    sx={{ borderColor: 'rgba(255,255,255,0.6)' }}
+                  >
+                    Open in Google Maps
+                  </Button>
+                </Stack>
               </Box>
             </Grid>
 

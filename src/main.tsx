@@ -34,5 +34,5 @@ const hideSplashScreen = () => {
 requestAnimationFrame(() => {
   window.setTimeout(() => {
     hideSplashScreen();
-  }, 4000);
+  }, 6000);
 });
