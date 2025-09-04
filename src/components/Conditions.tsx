@@ -2,32 +2,32 @@ import { Box, Container, Grid, Card, CardContent, Typography } from '@mui/materi
 
 const conditions = [
   {
-    icon: "🚫",
+    image: "/images/substance.jpg",
     title: "Substance Abuse",
     description: "Comprehensive treatment for alcohol and drug addiction with medical detox and therapy."
   },
   {
-    icon: "😔",
+    image: "/images/depress.png",
     title: "Depression & Bipolar",
     description: "Professional care for mood disorders with medication management and counseling."
   },
   {
-    icon: "😰",
+    image: "/images/anxiety-disorders.png",
     title: "Anxiety Disorders",
     description: "Treatment for generalized anxiety, panic disorders, and phobias through therapy."
   },
   {
-    icon: "💔",
+    image: "/images/ptsd-grief.jpg",
     title: "PTSD & Grief",
     description: "Specialized care for trauma survivors and those experiencing loss and grief."
   },
   {
-    icon: "🧠",
+    image: "/images/schizophrenia.jpg",
     title: "Schizophrenia",
     description: "Comprehensive treatment for psychotic disorders with medication and support."
   },
   {
-    icon: "👤",
+    image: "/images/personality-disorders.jpg",
     title: "Personality & Sexual Disorders",
     description: "Specialized therapy for personality disorders and sexual health concerns."
   }
@@ -58,9 +58,7 @@ export default function Conditions() {
               }}>
               <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', transition: 'box-shadow 0.3s', '&:hover': { boxShadow: 6 } }}>
                 <CardContent sx={{ flexGrow: 1 }}>
-                  <Typography variant="h3" component="div" sx={{ mb: 2 }}>
-                    {condition.icon}
-                  </Typography>
+                  <Box sx={{ height: 140, mb: 2, overflow: 'hidden', borderRadius: '4px' }}><img src={condition.image} alt={condition.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} /></Box>
                   <Typography variant="h6" component="h3" fontWeight="bold" gutterBottom>
                     {condition.title}
                   </Typography>
