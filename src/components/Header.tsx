@@ -30,7 +30,7 @@ export default function Header() {
         display: 'flex', 
         flexDirection: 'column', 
         height: '100%', 
-        bgcolor: '#0800FF', 
+        bgcolor: 'primary.main', 
         color: 'white',
         minWidth: 280
       }}
@@ -101,7 +101,7 @@ export default function Header() {
 
   return (
     <>
-      <AppBar position="sticky" sx={{ bgcolor: 'white', color: '#0800FF', zIndex: 1200 }}>
+      <AppBar position="sticky" sx={{ bgcolor: 'white', color: 'primary.main', zIndex: 1200 }}>
         <Toolbar sx={{ justifyContent: 'space-between', py: { xs: 1.5, md: 2.5 } }}>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
                           <Box
@@ -113,12 +113,12 @@ export default function Header() {
                 sx={{ width: { xs: 80, md: 100 }, height: { xs: 80, md: 100 }, mr: 3 }}
               />
             <Box>
-              <Typography variant="h6" component="div" fontWeight="bold" sx={{ color: '#0800FF', lineHeight: 1.1 }}>
+              <Typography variant="h6" component="div" fontWeight="bold" sx={{ color: 'primary.main', lineHeight: 1.1 }}>
                 Presbyterian
                 {' '}
                 Medical Care Centre
               </Typography>
-              <Typography variant="subtitle2" sx={{ color: '#0800FF', mt: 0.25 }}>
+              <Typography variant="subtitle2" sx={{ color: 'primary.main', mt: 0.25 }}>
                 Nakuru
               </Typography>
             </Box>
@@ -127,7 +127,7 @@ export default function Header() {
                 icon={<ChurchIcon />} 
                 label="Affiliated: PCEA Nakuru" 
                 sx={{
-                  bgcolor: '#0800FF',
+                  bgcolor: 'primary.main',
                   color: 'white',
                   fontWeight: 700,
                   borderRadius: 2,
@@ -155,9 +155,9 @@ export default function Header() {
                     textTransform: 'none',
                     borderRadius: 2,
                     position: 'relative',
-                    color: '#0800FF',
+                    color: 'primary.main',
                     '&:hover': {
-                      bgcolor: 'rgba(8, 0, 255, 0.1)',
+                      bgcolor: 'rgba(21, 101, 192, 0.1)',
                       transform: 'translateY(-1px)',
                     },
                     '&::after': {
@@ -167,7 +167,7 @@ export default function Header() {
                       left: '50%',
                       width: 0,
                       height: 2,
-                      bgcolor: '#0800FF',
+                      bgcolor: 'primary.main',
                       transition: 'all 0.3s ease',
                       transform: 'translateX(-50%)',
                     },
@@ -189,7 +189,7 @@ export default function Header() {
                 variant="contained" 
                 sx={{ 
                   display: { xs: 'none', md: 'block' }, 
-                  bgcolor: '#0800FF', 
+                  bgcolor: 'primary.main', 
                   color: 'white',
                   px: 4,
                   py: 1.5,
@@ -197,11 +197,11 @@ export default function Header() {
                   fontSize: '0.95rem',
                   textTransform: 'none',
                   borderRadius: 3,
-                  boxShadow: '0 4px 12px rgba(8, 0, 255, 0.3)',
+                  boxShadow: '0 4px 12px rgba(21, 101, 192, 0.3)',
                   '&:hover': { 
-                    bgcolor: '#0600CC',
+                    bgcolor: '#1054A2',
                     transform: 'translateY(-2px)',
-                    boxShadow: '0 6px 20px rgba(8, 0, 255, 0.4)',
+                    boxShadow: '0 6px 20px rgba(21, 101, 192, 0.4)',
                   },
                   transition: 'all 0.3s ease',
                 }}
@@ -214,10 +214,10 @@ export default function Header() {
           <IconButton
             sx={{ 
               display: { md: 'none' }, 
-              color: '#0800FF',
+              color: 'primary.main',
               p: 1.5,
               '&:hover': {
-                bgcolor: 'rgba(8, 0, 255, 0.1)'
+                bgcolor: 'rgba(21, 101, 192, 0.1)'
               }
             }}
             aria-label="open drawer"
@@ -240,7 +240,7 @@ export default function Header() {
           '& .MuiDrawer-paper': {
             width: '50vw',
             minWidth: 280,
-            bgcolor: '#0800FF'
+            bgcolor: 'primary.main'
           }
         }}
       >

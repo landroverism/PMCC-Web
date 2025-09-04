@@ -1,8 +1,8 @@
 import { Avatar, Box, Container, Grid, Paper, Typography, Card, CardContent } from '@mui/material';
 
 const teamMembers = [
-  { name: "Mumbi Waigwa", role: "Snr Counsellor", bio: "Expert in trauma therapy and cognitive behavioral therapy. Passionate about integrating faith and healing.", avatar: { initials: "MW" } },
-  { name: "Fred Kamiti", role: "Psychiatrist", bio: "Over 15 years of experience in mental health treatment. Specializes in mood disorders and substance abuse recovery.", avatar: { initials: "FK" } },
+  { name: "Mumbi Waigwa", role: "Snr Counsellor", bio: "Expert in trauma therapy and cognitive behavioral therapy. Passionate about integrating faith and healing.", avatar: { src: "/images/mumbi-3.jpeg" } },
+  { name: "Fred Kamiti", role: "Psychiatrist", bio: "Over 15 years of experience in mental health treatment. Specializes in mood disorders and substance abuse recovery.", avatar: { src: "/images/fred.png" } },
   { name: "John Kamau", role: "Board Member", bio: "IT Expert assists in Tech know-how", avatar: { initials: "JK" } },
   { name: "Sarah Njeri", role: "Licensed Therapist", bio: "Specializes in family therapy and group counseling. Dedicated to helping families heal together.", avatar: { initials: "SN" } },
   { name: "David Ochieng", role: "Addiction Counselor", bio: "Certified addiction specialist with personal recovery experience. Leads group therapy sessions.", avatar: { initials: "DO" } },
@@ -49,7 +49,7 @@ export default function Team() {
                   alt={member.name}
                   sx={{ width: 100, height: 100, margin: '0 auto 16px', border: '3px solid', borderColor: 'primary.main', bgcolor: 'primary.light' }}
                 >
-                  {member.avatar.initials}
+                  {member.avatar.src ? <img src={member.avatar.src} alt={member.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> : member.avatar.initials}
                 </Avatar>
                 <Typography variant="h6" component="h3" fontWeight="bold">{member.name}</Typography>
                 <Typography color="primary.main" gutterBottom>{member.role}</Typography>

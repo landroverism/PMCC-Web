@@ -23,11 +23,12 @@ const iconProps = { fontSize: 'large' as const, color: 'primary' as const };
 const currentFacilities = [
   { title: "Comfortable Living Rooms", description: "Homely spaces with soft furnishings, warm lighting, and familiar textures.", image: "/images/coaches.jpeg", category: "Living Spaces" },
   { title: "Peaceful Bedrooms", description: "Private, home-like bedrooms with comfortable bedding and personal touches.", image: "/images/bedding.jpeg", category: "Accommodation" },
-  { title: "Family-Style Dining", description: "Communal dining areas that feel like home, promoting social connection.", image: "/images/dining.jpeg", category: "Dining" },
+  { title: "Family-Style Dining", description: "Communal dining areas that feel like home, promoting social connection.", image: "/images/dh-3.JPG", category: "Dining" },
   { title: "Therapy Gardens", description: "Serene outdoor spaces with natural materials and peaceful surroundings.", image: "/images/side-view.jpeg", category: "Outdoor Spaces" },
   { title: "Group Activity Areas", description: "Comfortable spaces designed for group therapy and social activities.", image: "/images/hall.jpeg", category: "Activity Spaces" },
-  { title: "Prayer & Meditation Room", description: "Peaceful spiritual space with natural materials and calming atmosphere.", image: "/images/prayer.jpg", category: "Spiritual" },
+  { title: "Chilling Parlour", description: "Peaceful spiritual space with natural materials and calming atmosphere.", image: "/images/chill-parlour.JPG", category: "Spiritual" },
   { title: "Kitchen & Cooking Area", description: "Home-style kitchen where patients can participate in meal preparation.", image: "/images/counter.jpeg", category: "Life Skills" },
+  { title: "Consultation Area", description: "Private and confidential space for consultations with our professional staff.", image: "/images/consultation-area.JPG", category: "Consultation" },
 ];
 
 const futurePlans = [
