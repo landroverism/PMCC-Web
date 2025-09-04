@@ -33,9 +33,9 @@ const hideSplashScreen = () => {
   }, 450);
 };
 
-// Wait ~4 seconds after first paint, then hide the splash
+// Wait 4 seconds after first paint, then hide the splash
 requestAnimationFrame(() => {
   window.setTimeout(() => {
     hideSplashScreen();
-  }, 6000);
+  }, 4000);
 });
