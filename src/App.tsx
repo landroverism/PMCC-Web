@@ -15,6 +15,7 @@ import FloatingContactButton from "./components/FloatingContactButton";
 import WhyChoosePMCC from "./components/WhyChoosePMCC";
 import CrisisBar from "./components/CrisisBar";
 import LocationDirections from "./components/LocationDirections";
+import HealingEnvironment from "./components/HealingEnvironment";
 
 export default function App() {
   return (
@@ -23,6 +24,9 @@ export default function App() {
       <Header />
       <main>
         <Hero />
+        <AnimateOnScroll>
+          <HealingEnvironment />
+        </AnimateOnScroll>
         <AnimateOnScroll>
           <About />
         </AnimateOnScroll>

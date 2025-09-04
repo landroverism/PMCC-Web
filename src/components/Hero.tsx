@@ -27,11 +27,11 @@ export default function Hero() {
       id="home"
       sx={{
         position: 'relative',
-        backgroundImage: 'url(/images/pmcc-logo.png)',
+        backgroundImage: 'url(/images/pmmc-back.jpeg)',
         backgroundAttachment: 'fixed',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        backgroundSize: { xs: '70%', md: '40%' },
+        backgroundSize: 'cover',
         py: { xs: 10, md: 20 },
         color: 'white',
         textAlign: 'center',
