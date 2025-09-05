@@ -11,7 +11,7 @@ const spaces = [
     title: 'Accommodation',
     description: 'Peaceful Bedrooms',
     subDescription: 'Private, home-like bedrooms with comfortable bedding and personal touches.',
-    image: '/images/bedding.jpeg',
+    image: '/images/bed-rehab.jpeg',
   },
   {
     title: 'Dining',

@@ -7,12 +7,12 @@ const conditions = [
     description: "Comprehensive treatment for alcohol and drug addiction with medical detox and therapy."
   },
   {
-    image: "/images/depress.png",
+    image: "/images/bipolar.png",
     title: "Depression & Bipolar",
     description: "Professional care for mood disorders with medication management and counseling."
   },
   {
-    image: "/images/anxiety-disorders.png",
+    image: "/images/anxiety.png",
     title: "Anxiety Disorders",
     description: "Treatment for generalized anxiety, panic disorders, and phobias through therapy."
   },

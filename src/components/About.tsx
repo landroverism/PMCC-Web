@@ -79,6 +79,20 @@ export default function About() {
               <Typography variant="subtitle1" color="primary.main" fontWeight="bold">
                 Located in the heart of Nakuru
               </Typography>
+
+              <Typography variant="h5" component="h3" fontWeight="bold" gutterBottom sx={{ mt: 4 }}>
+                Our Vision
+              </Typography>
+              <Typography variant="body1" color="text.secondary" sx={{ mb: 2 }}>
+                To be a beacon of hope and a center for excellence in mental health and addiction recovery, fostering resilient individuals and thriving communities through faith-inspired care.
+              </Typography>
+
+              <Typography variant="h5" component="h3" fontWeight="bold" gutterBottom sx={{ mt: 4 }}>
+                Our Motto
+              </Typography>
+              <Typography variant="body1" color="text.secondary">
+                "Healing Minds, Renewing Spirits."
+              </Typography>
             </Grid>
             <Grid size={{ xs: 12, lg: 6 }}>
               <Box
