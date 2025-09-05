@@ -125,7 +125,7 @@ export default function Header() {
             <Box sx={{ ml: 2, display: { xs: 'none', md: 'block' } }}>
               <Chip 
                 icon={<ChurchIcon />} 
-                label="Affiliated: PCEA Nakuru" 
+                label="Affiliated: PCEA Nakuru-West" 
                 sx={{
                   bgcolor: 'primary.main',
                   color: 'white',
