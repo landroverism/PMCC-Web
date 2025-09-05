@@ -2,7 +2,7 @@ import { Box, Container, Grid, Card, CardContent, Typography } from '@mui/materi
 
 const conditions = [
   {
-    image: "/images/substance.jpg",
+    image: "/images/substance-fty.png",
     title: "Substance Abuse",
     description: "Comprehensive treatment for alcohol and drug addiction with medical detox and therapy."
   },
@@ -22,12 +22,12 @@ const conditions = [
     description: "Specialized care for trauma survivors and those experiencing loss and grief."
   },
   {
-    image: "/images/schizophrenia.jpg",
+    image: "/images/skinzo.png",
     title: "Schizophrenia",
     description: "Comprehensive treatment for psychotic disorders with medication and support."
   },
   {
-    image: "/images/personality-disorders.jpg",
+    image: "/images/sex-new.png",
     title: "Personality & Sexual Disorders",
     description: "Specialized therapy for personality disorders and sexual health concerns."
   }
