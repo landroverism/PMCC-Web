@@ -185,7 +185,7 @@ export default function WhyChoosePMCC() {
           <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, flexWrap: 'wrap' }}>
             <Chip
               icon={<Phone />}
-              label="Call Now: +254 700 000 000"
+              label="Call Now: 0117 684 003"
               color="primary"
               variant="filled"
               sx={{ 
@@ -196,7 +196,7 @@ export default function WhyChoosePMCC() {
                 cursor: 'pointer'
               }}
               component="a"
-              href="tel:+254700000000"
+              href="tel:+254117684003"
             />
             <Chip
               icon={<WhatsApp />}
@@ -211,7 +211,7 @@ export default function WhyChoosePMCC() {
                 cursor: 'pointer'
               }}
               component="a"
-              href="https://wa.me/254700000000"
+              href="https://wa.me/254117684003"
               target="_blank"
               rel="noopener noreferrer"
             />
