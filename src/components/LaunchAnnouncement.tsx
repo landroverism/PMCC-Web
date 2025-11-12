@@ -55,7 +55,7 @@ export default function LaunchAnnouncement() {
         component="section"
         sx={{
           position: 'fixed',
-          top: { xs: 96, sm: 24 },
+          top: { xs: 96, sm: 120, md: 140 },
           right: { xs: 16, sm: 32 },
           left: { xs: 16, sm: 'auto' },
           maxWidth: { xs: 'calc(100% - 32px)', sm: 360, md: 420 },
@@ -224,5 +224,3 @@ export default function LaunchAnnouncement() {
     </Grow>
   );
 }
-
-g
