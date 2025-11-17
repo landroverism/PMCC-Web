@@ -8,7 +8,7 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
-import { Celebration, Close, LocalHospital, CalendarMonth } from '@mui/icons-material';
+import { Celebration, Close, LocalHospital, CalendarMonth, AccessTime, LocationOn, Phone, Event } from '@mui/icons-material';
 import { keyframes } from '@mui/system';
 import { Link as ScrollLink } from 'react-scroll';
 
@@ -70,7 +70,9 @@ export default function LaunchAnnouncement() {
           p: { xs: 2.5, md: 3 },
           zIndex: 1200,
           animation: `${float} 6s ease-in-out infinite`,
-          overflow: 'hidden',
+          maxHeight: { xs: 'calc(100vh - 120px)', sm: 'calc(100vh - 160px)' },
+          overflowY: 'auto',
+          overflowX: 'hidden',
           '&::before': {
             content: '""',
             position: 'absolute',
@@ -135,7 +137,7 @@ export default function LaunchAnnouncement() {
                 Mark Your Calendar
               </Typography>
               <Typography variant="h6" component="p" sx={{ fontWeight: 800 }}>
-                PMCC Website & Rehab Centre Launch
+                PMCC Medical Clinic
               </Typography>
             </Box>
           </Stack>
@@ -149,11 +151,7 @@ export default function LaunchAnnouncement() {
               color: 'rgba(255,255,255,0.95)',
             }}
           >
-            We unveil the new PMCC website and our revitalized rehabilitation facility on{' '}
-            <Typography component="span" sx={{ fontWeight: 800 }}>
-              30 November 2025
-            </Typography>
-            . Step into a bold, compassionate chapter of healing and whole-person care.
+            Join Us - All are welcome for the Free Medical Clinic
           </Typography>
 
           <Box
@@ -164,36 +162,99 @@ export default function LaunchAnnouncement() {
               border: '1px solid rgba(255,255,255,0.18)',
             }}
           >
-            <Stack direction="row" alignItems="center" spacing={1.5} sx={{ mb: 1 }}>
+            <Stack direction="row" alignItems="center" spacing={1.5} sx={{ mb: 1.5 }}>
               <LocalHospital />
               <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-                Free Community Medical Clinic
+                FREE Medical Camp
               </Typography>
             </Stack>
-            <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
-              <CalendarMonth fontSize="small" />
-              <Typography variant="body2" sx={{ fontWeight: 600 }}>
-                28 & 29 November 2025 · 9:00 AM – 5:00 PM
-              </Typography>
-            </Stack>
+
             <Typography
               variant="body2"
-              sx={{ color: 'rgba(255,255,255,0.9)', lineHeight: 1.6 }}
+              sx={{ color: 'rgba(255,255,255,0.95)', fontWeight: 600, mb: 1.5 }}
             >
-              Walk-in screenings for mental wellness, addiction recovery guidance, family
-              counselling previews, vitals checks, stress relief workshops, and pastoral
-              support—all absolutely free and open-air for the community.
+              Services to be Offered:
             </Typography>
-            <Chip
-              label="Everyone is welcome"
-              icon={<LocalHospital fontSize="small" />}
+            <Stack spacing={0.8} sx={{ mb: 2, pl: 1 }}>
+              <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.9)', fontSize: '0.875rem' }}>
+                • General Medical Consultations
+              </Typography>
+              <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.9)', fontSize: '0.875rem' }}>
+                • Blood Pressure & Blood Sugar Screenings
+              </Typography>
+              <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.9)', fontSize: '0.875rem' }}>
+                • Eye & Dental Check-ups
+              </Typography>
+              <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.9)', fontSize: '0.875rem' }}>
+                • Nutrition & Wellness Counseling
+              </Typography>
+              <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.9)', fontSize: '0.875rem' }}>
+                • Family Planning & Maternal Health Services
+              </Typography>
+              <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.9)', fontSize: '0.875rem' }}>
+                • Drug Rehabilitation Awareness
+              </Typography>
+            </Stack>
+
+            <Stack spacing={1.2} sx={{ mb: 2 }}>
+              <Stack direction="row" spacing={1} alignItems="flex-start">
+                <CalendarMonth fontSize="small" sx={{ mt: 0.3 }} />
+                <Typography variant="body2" sx={{ fontWeight: 600, color: 'rgba(255,255,255,0.95)' }}>
+                  <strong>DATES:</strong> Friday 28th & Saturday 29th November 2025
+                </Typography>
+              </Stack>
+              <Stack direction="row" spacing={1} alignItems="flex-start">
+                <AccessTime fontSize="small" sx={{ mt: 0.3 }} />
+                <Typography variant="body2" sx={{ fontWeight: 600, color: 'rgba(255,255,255,0.95)' }}>
+                  <strong>TIME:</strong> 8:00am – 5:00pm
+                </Typography>
+              </Stack>
+              <Stack direction="row" spacing={1} alignItems="flex-start">
+                <LocationOn fontSize="small" sx={{ mt: 0.3 }} />
+                <Typography variant="body2" sx={{ fontWeight: 600, color: 'rgba(255,255,255,0.95)' }}>
+                  <strong>VENUE:</strong> PMCC Facility
+                </Typography>
+              </Stack>
+            </Stack>
+
+            <Box
               sx={{
-                mt: 1.5,
-                bgcolor: 'rgba(255,255,255,0.18)',
-                color: '#ffffff',
-                fontWeight: 600,
+                bgcolor: 'rgba(255,255,255,0.12)',
+                borderRadius: 2,
+                p: 1.5,
+                mb: 1.5,
+                border: '1px solid rgba(255,255,255,0.2)',
               }}
-            />
+            >
+              <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 0.8 }}>
+                <Event fontSize="small" />
+                <Typography variant="body2" sx={{ fontWeight: 700, color: '#ffffff' }}>
+                  Official Launch of PMCC
+                </Typography>
+              </Stack>
+              <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.95)', pl: 3.5 }}>
+                Sunday 30th November 2025
+              </Typography>
+              <Stack direction="row" spacing={1} alignItems="center" sx={{ pl: 3.5, mt: 0.5 }}>
+                <AccessTime fontSize="small" sx={{ fontSize: '0.875rem' }} />
+                <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.95)' }}>
+                  10:00am
+                </Typography>
+              </Stack>
+              <Stack direction="row" spacing={1} alignItems="center" sx={{ pl: 3.5, mt: 0.5 }}>
+                <LocationOn fontSize="small" sx={{ fontSize: '0.875rem' }} />
+                <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.95)' }}>
+                  PMCC Facility
+                </Typography>
+              </Stack>
+            </Box>
+
+            <Stack direction="row" spacing={1} alignItems="center">
+              <Phone fontSize="small" />
+              <Typography variant="body2" sx={{ fontWeight: 600, color: 'rgba(255,255,255,0.95)' }}>
+                <strong>Contacts:</strong> 0117 684 003 | 0735 269 968
+              </Typography>
+            </Stack>
           </Box>
 
           <ScrollLink to="contact" smooth duration={600} offset={-80}>
