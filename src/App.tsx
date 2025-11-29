@@ -16,13 +16,11 @@ import WhyChoosePMCC from "./components/WhyChoosePMCC";
 import CrisisBar from "./components/CrisisBar";
 import LocationDirections from "./components/LocationDirections";
 import HealingEnvironment from "./components/HealingEnvironment";
-import LaunchAnnouncement from "./components/LaunchAnnouncement";
 
 export default function App() {
   return (
     <>
       <CrisisBar />
-      <LaunchAnnouncement />
       <Header />
       <main>
         <Hero />
